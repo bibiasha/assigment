@@ -5,18 +5,18 @@ const controller1 = require("../controller/blogController")
 const middleware1 = require("../middleware/middleware")
 
 
-router.post("/createAuthor", controller.createAuthor)
+router.post("/authors", controller.createAuthor)
 
 router.post("/login", controller.login) 
 
 router.post("/createBlog/:authorId", middleware1.auth, controller1.createBlog)
 
-router.get("/blogs/:authorId", middleware1.auth, controller1.getBlog)
+router.get("/blogs", middleware1.auth, controller1.getBlog)
 
-router.put("/updatedBlog/:blogId/:authorId",middleware1.auth, controller1.updatedBlog)
+router.put("/blogs/:blogId",middleware1.auth, controller1.updatedBlog)
 
-router.delete("/deleteBlog/:authorId", middleware1.auth, controller1.deleteBlog)
+router.delete("/blogs/:blogId", middleware1.auth, controller1.deleteBlog)
 
-router.delete("/deleteBlogBy/:authorId", middleware1.auth, controller1.deleteBlogBy)
+router.delete("/blogs", middleware1.auth, controller1.deleteBlogBy)
 
 module.exports = router;
